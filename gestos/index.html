@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="leaf.css">
+    <title>Document</title>
+</head>
+
+<!-- <style>
+    /* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+} -->
+
+
+<!-- </style> -->
+<body>
+    <!-- Rectangular switch -->
+<!-- <label class="switch">
+    <input type="checkbox">
+    <span class="slider"></span>
+  </label> -->
+  
+  <!-- Rounded switch -->
+  <!-- <label class="switch">
+    <input type="checkbox" >
+    <span class="slider round"></span>
+  </label> -->
+
+  <div class="container">
+
+  <input id="touchR" class="touch_slider right" type="button" value="Back">
+
+  <div class="slider">
+    <div class="slider-container">
+    <!-- vários itens aqui. imagens, links, o que quisermos -->
+    <img src="https://th.bing.com/th/id/OIP.T3gTPt-jP2AFdrG12GwRxAHaE7?pid=ImgDet&rs=1">
+    <img src="https://th.bing.com/th/id/R2781b01fcd5058aaef3a2de890e0599a?rik=gNc7VsXUszL9Qw&pid=ImgRaw">
+    <img src="https://th.bing.com/th/id/R2781b01fcd5058aaef3a2de890e0599a?rik=gNc7VsXUszL9Qw&pid=ImgRaw">
+    <img src="https://th.bing.com/th/id/OIP.T3gTPt-jP2AFdrG12GwRxAHaE7?pid=ImgDet&rs=1">
+    <img src="https://th.bing.com/th/id/R2781b01fcd5058aaef3a2de890e0599a?rik=gNc7VsXUszL9Qw&pid=ImgRaw">
+    <img src="https://th.bing.com/th/id/R2781b01fcd5058aaef3a2de890e0599a?rik=gNc7VsXUszL9Qw&pid=ImgRaw">
+    <img src="https://th.bing.com/th/id/OIP.T3gTPt-jP2AFdrG12GwRxAHaE7?pid=ImgDet&rs=1">
+    <img src="https://th.bing.com/th/id/R2781b01fcd5058aaef3a2de890e0599a?rik=gNc7VsXUszL9Qw&pid=ImgRaw">
+    <img src="https://th.bing.com/th/id/R2781b01fcd5058aaef3a2de890e0599a?rik=gNc7VsXUszL9Qw&pid=ImgRaw">
+    <!-- ... -->
+    </div>
+    </div>
+
+    <input id="touchL" class="touch_slider left" type="button" value="Preview" autocapitalize="on">
+
+</div>
+
+<script>
+     var slider = document.querySelector('.slider');
+    var container = slider.querySelector('.slider-container');
+    var buttonRight = document.querySelector('#touchR');
+    var buttonLeft = document.querySelector('#touchL');
+
+var origem = 0;
+var total = 0;
+
+// calcula o ponto inicial de toque
+slider.ontouchstart = function(e){
+origem = e.changedTouches[0].clientX;
+}
+
+slider.ontouchmove = function(e){
+// calcula o quanto o dedo moveu com relação a origem do 1o toque
+var deslocamento = e.changedTouches[0].clientX - origem;
+var posicao = deslocamento + total;
+container.style.transform = 'translateX(' + deslocamento + 'px)';
+
+}
+
+slider.ontouchend = function(e) {
+total += e.changedTouches[0].clientX - origem;
+}
+</script>
+
+</body>
+</html>

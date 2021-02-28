@@ -1,0 +1,13 @@
+.slider {
+    /* tamanho visível do slider */
+    height: 100px;
+    width: 300px;
+    /* esconde itens que não couberem */
+    overflow: hidden;
+    }
+    .slider-container {
+    /* mesma altura do slider */
+    height: 100px;
+    /* largura grande, pra caber todos itens */
+    width: 1000px;
+    }
